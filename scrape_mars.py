@@ -19,7 +19,7 @@ def scrape():
     soup = BeautifulSoup(html, 'html.parser')
     news = soup.find_all('div', class_="image_and_description_container")
     mars_data["news_title"] = news[0].find('h3').text
-    mars_data["news_p"] = news[0].find('a').text
+    mars_data["news_p"] = news[0].find('div', class_="article_teaser_body").text
 
 
     #Scrape Mars feature image

@@ -18,32 +18,101 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">3...2...1...Launch!</a></p>
     </div>
 
-    <!-- Craigslist Listings -->
+    <!-- First Row -->
     <div class="row">
       <div class="col-md-12">
-        <h3>Latest Mars News</h3>
-        <h4>{{mars.news_title}}</h4>
-        <small>{{mars.news_p}}</small>
+          <div class="page-header">
+              <center><h2>Latest Mars News</h2></center>
+              <h4>{{ mars.news_title }}</h4>
+              <small>{{ mars.news_p }}</small>
+          </div>     
       </div>
     </div>
     
+    <!-- Second Row -->
     <div class="row">
       <div class="col-xs-12 col-md-7">
         <h3>Featured Mars Image</h3>
-        <img src= {{ mars.featured_image_url }} style="width: 550px; height: 400px; margin-top:-10px">
+        <a href= {{ mars.featured_image_url }} class="thumbnail">
+          <img src= {{ mars.featured_image_url }} style="width: 550px; height: 400px; margin-top:-2px" alt="Featured Image">
+        </a>  
       </div>
+      
 
       <div class="col-xs-12 col-md-5">
         <div class="panel panel-default">
             <div class="panel-body">
-              <h4>Current Weather on Mars</h4>
+              <h3>Current Weather on Mars</h3>
               {{mars.mars_weather}}
             </div>
         </div>
 
         <h4>Mars Fact</h4>
         {{mars.html_table|safe}}
-      </div>
+      </div>  
+    </div>
+  
+
+    <div class="row">
+        <div class="page-header">
+            <center><h2>Mars Hemispheres</h2></center>
+        </div>
+    </div>        
+
+    <!-- Insert the 4 mars pictures (First row with 2 pictures)-->
+    <div class="row">
+
+        <div class="col-sm-6 col-md-6">
+          <!-- Cerberus Hemisphere -->
+          <div class="thumbnail">
+            <a href= {{ mars.hemisphere_image_urls[0].img_url }} class="thumbnail">
+              <img src= {{ mars.hemisphere_image_urls[0].img_url }} alt="Cerberus Hemisphere">
+            </a>  
+            <div class="caption">
+              <h3>{{ mars.hemisphere_image_urls[0].title}}</h3>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Schiaparelli Hemisphere-->
+        <div class="col-sm-6 col-md-6">
+          <div class="thumbnail">
+              <a href= {{ mars.hemisphere_image_urls[1].img_url }} class="thumbnail">
+                <img src= {{ mars.hemisphere_image_urls[1].img_url }} alt="Schiaparelli Hemisphere">
+              </a>
+              <div class="caption">
+                <h3>{{ mars.hemisphere_image_urls[1].title}}</h3>
+              </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Insert the 4 mars pictures (Second row with 2 pictures)-->
+    <div class="row">
+        <div class="col-sm-6 col-md-6">
+          
+          <!-- Syrtis Major Hemisphere-->
+          <div class="thumbnail">
+            <a href= {{ mars.hemisphere_image_urls[2].img_url }} class="thumbnail">
+              <img src= {{ mars.hemisphere_image_urls[2].img_url }} alt="Syrtis Major Hemisphere">
+            </a>
+            <div class="caption">
+              <h3>{{ mars.hemisphere_image_urls[2].title}}</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Valles Marineris Hemisphere -->
+        <div class="col-sm-6 col-md-6">
+          <div class="thumbnail">
+              <a href= {{ mars.hemisphere_image_urls[3].img_url }} class="thumbnail">
+                <img src= {{ mars.hemisphere_image_urls[3].img_url }} alt="Valles Marineris Hemisphere">
+              </a>  
+              <div class="caption">
+                <h3>{{ mars.hemisphere_image_urls[3].title}}</h3>
+              </div>
+          </div>
+        </div>
     </div>
   </div>
 </body>
