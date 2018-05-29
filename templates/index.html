@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hot Finds</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">3...2...1...Launch!</a></p>
+    </div>
+
+    <!-- Craigslist Listings -->
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Latest Mars News</h3>
+        <h4>{{mars.news_title}}</h4>
+        <small>{{mars.news_p}}</small>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-xs-12 col-md-7">
+        <h3>Featured Mars Image</h3>
+        <img src= {{ mars.featured_image_url }} style="width: 550px; height: 400px; margin-top:-10px">
+      </div>
+
+      <div class="col-xs-12 col-md-5">
+        <div class="panel panel-default">
+            <div class="panel-body">
+              <h4>Current Weather on Mars</h4>
+              {{mars.mars_weather}}
+            </div>
+        </div>
+
+        <h4>Mars Fact</h4>
+        {{mars.html_table|safe}}
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
